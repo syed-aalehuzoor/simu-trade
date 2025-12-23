@@ -21,6 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'balance',
         'email',
         'password',
     ];
@@ -60,5 +61,53 @@ class User extends Authenticatable
             ->take(2)
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
+    }
+
+    /**
+     * Get the transactions for the user.
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    /**
+     * Add balance to the user.
+     *
+     * @param int $amount
+     * @param string $description
+     * @return void
+     */
+    public function addBalance($amount, $description)
+    {
+        $oldBalance = $this->balance;
+        $this->balance += $amount;
+        $this->save();
+
+        $this->transactions()->create([
+            'old_balance' => $oldBalance,
+            'new_balance' => $this->balance,
+            'description' => $description,
+        ]);
+    }
+
+    /**
+     * Deduct balance from the user.
+     *
+     * @param int $amount
+     * @param string $description
+     * @return void
+     */
+    public function deductBalance($amount, $description)
+    {
+        $oldBalance = $this->balance;
+        $this->balance -= $amount;
+        $this->save();
+
+        $this->transactions()->create([
+            'old_balance' => $oldBalance,
+            'new_balance' => $this->balance,
+            'description' => $description,
+        ]);
     }
 }
