@@ -2,6 +2,10 @@
 
 return [
 
+    'admins' => [
+        'aalehuzoornaqvi@gmail.com',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

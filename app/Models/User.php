@@ -110,4 +110,9 @@ class User extends Authenticatable
             'description' => $description,
         ]);
     }
+
+    public function isAdmin(): bool
+    {
+        return in_array($this->email, config('auth.admins'));
+    }
 }
