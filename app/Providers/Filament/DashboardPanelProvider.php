@@ -31,11 +31,7 @@ class DashboardPanelProvider extends PanelProvider
             ])
             ->discoverResources(in: app_path('Filament/Dashboard/Resources'), for: 'App\Filament\Dashboard\Resources')
             ->discoverPages(in: app_path('Filament/Dashboard/Pages'), for: 'App\Filament\Dashboard\Pages')
-            ->widgets([
-                \App\Filament\Dashboard\Widgets\CoinGeckoStats::class,
-                \App\Filament\Dashboard\Widgets\StockPriceWidget::class,
-                \App\Filament\Dashboard\Widgets\BalanceOverview::class,
-            ])
+            ->discoverWidgets(in: app_path('Filament/Dashboard/Widgets'), for: 'App\Filament\Dashboard\Widgets')
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
