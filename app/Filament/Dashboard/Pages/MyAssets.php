@@ -60,6 +60,9 @@ class MyAssets extends Page implements HasTable
                         $quantity = $record->quantity; 
                         return $price * $quantity;
                     }),
+            ])
+            ->actions([
+                \App\Filament\Actions\SellAction::make(),
             ]);
     }
 }
