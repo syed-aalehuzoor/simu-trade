@@ -13,4 +13,15 @@ class Asset extends Model
         'symbol',
         'type',
     ];
+
+    /**
+     * The users that belong to the asset.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class)
+            ->withPivot('balance')
+            ->using(UserAsset::class)
+            ->withTimestamps();
+    }
 }

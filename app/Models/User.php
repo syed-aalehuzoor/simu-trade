@@ -115,4 +115,15 @@ class User extends Authenticatable
     {
         return in_array($this->email, config('auth.admins'));
     }
+
+    /**
+     * The assets that belong to the user.
+     */
+    public function assets()
+    {
+        return $this->belongsToMany(Asset::class)
+            ->withPivot('balance')
+            ->using(UserAsset::class)
+            ->withTimestamps();
+    }
 }
