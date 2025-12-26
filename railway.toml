@@ -1,0 +1,5 @@
+[build]
+builder = "railpack"
+
+[build.env]
+PHP_EXTENSIONS = "ctype,curl,dom,fileinfo,filter,hash,mbstring,openssl,pcre,pdo,session,tokenizer,xml,intl,zip"
