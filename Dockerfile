@@ -1,4 +1,4 @@
-FROM dunglas/frankenphp:php8.2-bookworm
+FROM dunglas/frankenphp:php8.3-bookworm
 
 # Install required PHP extensions
 RUN install-php-extensions intl zip pdo_mysql
