@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'coingate' => [
+        'api_key' => env('COINGATE_API_KEY'),
+        'environment' => env('COINGATE_ENVIRONMENT', 'sandbox'), // sandbox or live
+    ],
+
 ];

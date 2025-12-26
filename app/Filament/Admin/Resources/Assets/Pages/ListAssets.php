@@ -13,7 +13,19 @@ class ListAssets extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            \Filament\Actions\Action::make('sync')
+                ->label('Sync Assets')
+                ->icon('heroicon-o-arrow-path')
+                ->color('info')
+                ->action(function () {
+                    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'AssetSeeder']);
+                    \Filament\Notifications\Notification::make()
+                        ->title('Assets synced successfully')
+                        ->success()
+                        ->send();
+                }),
             CreateAction::make(),
+
         ];
     }
 }

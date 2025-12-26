@@ -45,6 +45,10 @@ class DashboardPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->renderHook(
+                'panels::body.start',
+                fn () => view('filament.hooks.simulation-warning'),
+            );
     }
 }

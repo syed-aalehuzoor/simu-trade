@@ -13,7 +13,7 @@ class ListTransactions extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            //
+            \App\Filament\Actions\TopupAction::make(),
         ];
     }
 

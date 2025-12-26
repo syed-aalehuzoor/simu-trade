@@ -55,6 +55,10 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
                 'admin',
-            ]);
+            ])
+            ->renderHook(
+                'panels::body.start',
+                fn () => view('filament.hooks.simulation-warning'),
+            );
     }
 }
