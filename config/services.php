@@ -40,4 +40,10 @@ return [
         'environment' => env('COINGATE_ENVIRONMENT', 'sandbox'), // sandbox or live
     ],
 
+    'stripe' => [
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
+        'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
+    ],
+
 ];

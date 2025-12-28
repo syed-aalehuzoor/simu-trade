@@ -14,6 +14,7 @@ class ListTransactions extends ListRecords
     {
         return [
             \App\Filament\Actions\TopupAction::make(),
+            \App\Filament\Actions\StripeTopupAction::make(),
         ];
     }
 

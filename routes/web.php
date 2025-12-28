@@ -28,4 +28,7 @@ Route::middleware(['auth'])->group(function () {
             ),
         )
         ->name('two-factor.show');
+
+    Route::get('stripe/success', [App\Http\Controllers\StripePaymentController::class, 'success'])->name('stripe.success');
+    Route::get('stripe/cancel', [App\Http\Controllers\StripePaymentController::class, 'cancel'])->name('stripe.cancel');
 });
