@@ -1,0 +1,9 @@
+:{$PORT}
+
+root * /app/public
+
+php {
+    root /app/public
+}
+
+file_server
