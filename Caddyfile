@@ -3,7 +3,7 @@
 root * /app/public
 
 php {
-    root /app/public
+    index index.php
 }
 
 file_server
