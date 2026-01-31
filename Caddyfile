@@ -2,9 +2,4 @@
 
 root * /app/public
 
-php {
-    root /app/public
-    split .php
-}
-
-file_server
+php_server
